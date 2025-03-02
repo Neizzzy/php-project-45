@@ -2,15 +2,7 @@
 
 namespace Php\Project\Games\CalcGame;
 
-use function Php\Project\Engine\compareAnswers;
-use function Php\Project\Engine\gameResult;
-use function Php\Project\Engine\getAnswer;
-use function Php\Project\Engine\getName;
-use function Php\Project\Engine\greetings;
 use function Php\Project\Engine\runGame;
-use function Php\Project\Engine\showGame;
-use function Php\Project\Engine\showQuestion;
-use function Php\Project\Engine\welcome;
 
 function calcGame(): void
 {

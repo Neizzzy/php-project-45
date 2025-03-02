@@ -2,8 +2,6 @@
 
 namespace Php\Project\EvenGame;
 
-use function cli\line;
-use function cli\prompt;
 use function Php\Project\Engine\runGame;
 
 function evenGame(): void
