@@ -7,11 +7,12 @@ use function Php\Project\Engine\runGame;
 function calcGame(): void
 {
     $expressions = [];
+    $description = "What is the result of the expression?";
     $operations = ['+', '-', '*'];
 
     for ($i = 0; $i < 3; $i++) {
-        $firstNum = rand(0, 20);
-        $secondNum = rand(0, 10);
+        $firstNum = rand(0, 30);
+        $secondNum = rand(0, 20);
 
         $operationIndex = array_rand($operations, 1);
 
@@ -34,5 +35,5 @@ function calcGame(): void
         ];
     }
 
-    runGame($expressions);
+    runGame($expressions, $description);
 }
