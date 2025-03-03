@@ -1,6 +1,6 @@
 <?php
 
-namespace Php\Project\EvenGame;
+namespace Php\Project\Games\EvenGame;
 
 use function Php\Project\Engine\runGame;
 
