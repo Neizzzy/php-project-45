@@ -25,11 +25,12 @@ function gameResult(bool $isCorrect, string $name): void
     }
 }
 
-function runGame(array $expressions): void
+function runGame(array $expressions, string $gameDescription): void
 {
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?', false, ' ');
     line("Hello, {$name}!");
+    line($gameDescription);
 
     $result = true;
 
