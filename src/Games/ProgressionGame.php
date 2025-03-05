@@ -6,6 +6,7 @@ use function Php\Project\Engine\runGame;
 
 function generateProgression(int $progressionStart, int $progressionStep, int $progressionLength = 10): array
 {
+    $progression = [];
     $progression[] = $progressionStart;
 
     for ($i = 1; $i < $progressionLength; $i++) {
