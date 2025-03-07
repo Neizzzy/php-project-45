@@ -5,26 +5,6 @@ namespace Php\Project\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function compareAnswers(string $userAnswer, string $correctAnswer): bool
-{
-    if ($userAnswer === $correctAnswer) {
-        line("Correct!");
-        return true;
-    } else {
-        line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
-        return false;
-    }
-}
-
-function gameResult(bool $isCorrect, string $name): void
-{
-    if ($isCorrect) {
-        line("Congratulations, {$name}!");
-    } else {
-        line("Let's try again, {$name}!");
-    }
-}
-
 function runGame(array $expressions, string $gameDescription): void
 {
     line('Welcome to the Brain Games!');
@@ -32,18 +12,25 @@ function runGame(array $expressions, string $gameDescription): void
     line("Hello, {$name}!");
     line($gameDescription);
 
-    $result = true;
+    $isSuccess = true;
 
     foreach ($expressions as $expression) {
         line("Question: {$expression['expression']}");
 
         $userAnswer = prompt("Your answer:", false, ' ');
 
-        $result = compareAnswers($userAnswer, $expression['correctAnswer']);
-
-        if ($result === false) {
+        if ($userAnswer === strval($expression['correctAnswer'])) {
+            line("Correct!");
+        } else {
+            line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$expression['correctAnswer']}'.");
+            $isSuccess = false;
             break;
         }
     }
-    gameResult($result, $name);
+
+    if ($isSuccess === true) {
+        line("Congratulations, {$name}!");
+    } else {
+        line("Let's try again, {$name}!");
+    }
 }
