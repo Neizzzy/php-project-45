@@ -4,13 +4,16 @@ namespace Php\Project\Games\CalcGame;
 
 use function Php\Project\Engine\runGame;
 
+use const Php\Project\Engine\QUESTIONS_COUNT;
+
+const GAME_DESCRIPTION = "What is the result of the expression?";
+
 function calcGame(): void
 {
     $expressions = [];
-    $description = "What is the result of the expression?";
     $operations = ['+', '-', '*'];
 
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < QUESTIONS_COUNT; $i++) {
         $firstNum = rand(0, 30);
         $secondNum = rand(0, 20);
 
@@ -35,5 +38,5 @@ function calcGame(): void
         ];
     }
 
-    runGame($expressions, $description);
+    runGame($expressions, GAME_DESCRIPTION);
 }

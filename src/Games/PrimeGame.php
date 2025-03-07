@@ -4,32 +4,35 @@ namespace Pph\Project\Games\PrimeGame;
 
 use function Php\Project\Engine\runGame;
 
+use const Php\Project\Engine\QUESTIONS_COUNT;
+
+const GAME_DESCRIPTION = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
+
 function isPrimeNumber(int $number): bool
 {
     if ($number === 1) {
         return false;
     }
 
-    $prime = true;
+    $isPrime = true;
     $i = 2;
 
-    while ($i <= sqrt($number) && $prime === true) {
+    while ($i <= sqrt($number) && $isPrime === true) {
         if ($number % $i === 0) {
-            $prime = false;
+            $isPrime = false;
         }
 
         $i++;
     }
 
-    return $prime;
+    return $isPrime;
 }
 
 function primeGame(): void
 {
     $expressions = [];
-    $description = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
 
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < QUESTIONS_COUNT; $i++) {
         $num = rand(1, 100);
         $result = isPrimeNumber($num);
 
@@ -40,5 +43,5 @@ function primeGame(): void
         ];
     }
 
-    runGame($expressions, $description);
+    runGame($expressions, GAME_DESCRIPTION);
 }

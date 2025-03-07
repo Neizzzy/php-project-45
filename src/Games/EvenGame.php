@@ -4,16 +4,18 @@ namespace Php\Project\Games\EvenGame;
 
 use function Php\Project\Engine\runGame;
 
+use const Php\Project\Engine\QUESTIONS_COUNT;
+
+const GAME_DESCRIPTION = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
+
 function evenGame(): void
 {
     $expressions = [];
-    $description = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
-    $rightAnswer = '';
 
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < QUESTIONS_COUNT; $i++) {
         $num = rand(0, 100);
 
-        $num % 2 === 0 ? $rightAnswer = 'yes' :  $rightAnswer = 'no';
+        $rightAnswer = $num % 2 === 0 ? 'yes' : 'no';
 
         $expressions[] = [
             'expression' => $num,
@@ -21,5 +23,5 @@ function evenGame(): void
         ];
     }
 
-    runGame($expressions, $description);
+    runGame($expressions, GAME_DESCRIPTION);
 }

@@ -4,6 +4,10 @@ namespace Php\Project\Games\ProgressionGame;
 
 use function Php\Project\Engine\runGame;
 
+use const Php\Project\Engine\QUESTIONS_COUNT;
+
+const GAME_DESCRIPTION = "What number is missing in the progression?";
+
 function generateProgression(int $progressionStart, int $progressionStep, int $progressionLength = 10): array
 {
     $progression = [];
@@ -20,9 +24,8 @@ function generateProgression(int $progressionStart, int $progressionStep, int $p
 function progressionGame(): void
 {
     $expressions = [];
-    $description = "What number is missing in the progression?";
 
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < QUESTIONS_COUNT; $i++) {
         $progressionStart = rand(1, 15);
         $progressionStep = rand(1, 5);
         $progressionLength = rand(5, 15);
@@ -41,5 +44,5 @@ function progressionGame(): void
         ];
     }
 
-    runGame($expressions, $description);
+    runGame($expressions, GAME_DESCRIPTION);
 }
