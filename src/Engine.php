@@ -5,6 +5,8 @@ namespace Php\Project\Engine;
 use function cli\line;
 use function cli\prompt;
 
+const QUESTIONS_COUNT = 3;
+
 function runGame(array $expressions, string $gameDescription): void
 {
     line('Welcome to the Brain Games!');
